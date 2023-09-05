@@ -30,6 +30,20 @@ public class MenuItem {
         isNew = aNew;
     }
 
+    public String getName() {
+        return name;
+    }
+    public String getCategory(){
+        return category;
+    }
+
+    public String toString(){ //special method
+        if (isNew){
+            return "New! " + name + ": $" + price + " (" + description + ")";
+        }
+        return name + ": $" + price + " (" + description + ")";
+    }
+
 
 
 

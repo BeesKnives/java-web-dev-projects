@@ -33,7 +33,39 @@ public class Menu {
     }
 
 
-    public void displayMenu(){
+    public void display(){
+        ArrayList<MenuItem> appetizer = new ArrayList<MenuItem>();
+        ArrayList<MenuItem> mainCourse = new ArrayList<MenuItem>();
+        ArrayList<MenuItem> dessert = new ArrayList<MenuItem>();
+       // ArrayList<MenuItem>[] categories = new ArrayList<MenuItem>{appetizer, mainCourse, dessert};
+
+        for(MenuItem item : items){ //sort items into their categories
+            if(item.getCategory().equals("____________________Appetizer____________________") ){
+                appetizer.add(item);
+            }
+            if(item.getCategory().equals("____________________Main Course____________________")){
+                mainCourse.add(item);
+            }
+            if(item.getCategory().equals("____________________Dessert____________________")){
+                dessert.add(item);
+            }
+        }
+
+
+        //print appetizers, main course, and dessert categories
+        System.out.println("Appetizers:");
+        for(MenuItem item : appetizer){
+            System.out.println(item);
+        }
+        System.out.println("Main Course:");
+        for(MenuItem item : mainCourse){
+            System.out.println(item);
+        }
+        System.out.println("Dessert:");
+        for(MenuItem item : dessert){
+            System.out.println(item);
+        }
+
         //code here
         //get a loop going through the different menu items, sort each into different categories for display. Then loop through each category and print the menuItem
         //remove: maybe have an id key that gets set when it's looping through different menu items? or just have the person type out its name and search for that...

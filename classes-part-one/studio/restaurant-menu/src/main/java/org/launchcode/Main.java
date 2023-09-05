@@ -1,5 +1,6 @@
 package org.launchcode;
 
+import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -9,57 +10,86 @@ import static java.time.LocalDate.now;
 public class Main {
     LocalDate lastUpdated = LocalDate.now(); //_______make menu parts and new menu
     ArrayList<MenuItem> items = new ArrayList<>();
+    Scanner input = new Scanner(System.in);
+
     Menu menu = new Menu(lastUpdated, items);
+
 
     public static void main(String[] args) {
 	    // write your code here
-        //prompt for adding a menu item
 
         //_____________________________________________make menuItem
-        Main item = new Main();
-        item.newItem();
-
+//        Main newMain = new Main();
+//        newMain.newItemPrompt();
+        Main main = new Main();
+        main.newItem();
 
     }
 
+//    public void newItemPrompt(){
+//        System.out.println("Add a new menu item? (y/n)");//________prompt for adding a menu item
+//        String addItem = input.nextLine();
+//        if(addItem.equals("y")){
+//
+//            main.newItem();
+//        }
+//    }
+
     public void newItem() {
-        Scanner input = new Scanner(System.in);//________________________get info you need
-        System.out.println("Item Name: ");
-        String name = input.nextLine();
-        System.out.println("Price: $");
-        Double price = input.nextDouble();
-        System.out.println("Description: ");
-        String description = input.nextLine();
-        String category = "";  //____________CATEGORY START - asking the user to input a # and setting category to the corresponding word
-        do {
-            if (category.equals("try again")) {
-                System.out.println("Incorrect input, try again:");
-            }
-            System.out.println("1: Appetizer, 2: Main Course, 3: Dessert ");
-            System.out.println("Pick a category (1, 2, 3)");
-            category = input.nextLine();
-            switch (category) {
-                case "1":
-                    category = "Appetizer";
-                    break;
-                case "2":
-                    category = "Main Course";
-                    break;
-                case "3":
-                    category = "Dessert";
-                    break;
-                default:
-                    category = "try again";
-            }
-        } while (category.equals("try again")); //________CATEGORY END
-        System.out.println("Is this a new item? true/false");
-        Boolean isNew = input.nextBoolean();
+        System.out.println("Add a new menu item? (y/n)");//________prompt for adding a menu item
+        String addItem = input.nextLine();
+        while(addItem.equals("y")) {
 
 
-        //______________________________________________________make new MenuItem, add it to menu
+            //Scanner input = new Scanner(System.in);//________________________get info you need
 
-        MenuItem menuItem = new MenuItem(name, price, description, category, isNew);
-        menu.addItem(menuItem);
+
+            System.out.println("Item Name: ");
+            String name = input.nextLine();
+            System.out.println("Price: $");
+            Double price = input.nextDouble();
+            input.nextLine();
+            System.out.println("Description: ");
+            String description = input.nextLine();
+            String category = "";  //____________CATEGORY START - asking the user to input a # and setting category to the corresponding word
+            do {
+                if (category.equals("try again")) {
+                    System.out.println("Incorrect input, try again:");
+                }
+                System.out.println("1: Appetizer, 2: Main Course, 3: Dessert ");
+                System.out.println("Pick a category (1, 2, 3)");
+                category = input.nextLine();
+                switch (category) {
+                    case "1":
+                        category = "Appetizer";
+                        break;
+                    case "2":
+                        category = "Main Course";
+                        break;
+                    case "3":
+                        category = "Dessert";
+                        break;
+                    default:
+                        category = "try again";
+                }
+            } while (category.equals("try again")); //________CATEGORY END
+            System.out.println("Is this a new item? true/false");
+            Boolean isNew = input.nextBoolean();
+            input.nextLine();
+
+
+            //______________________________________________________make new MenuItem, add it to menu
+
+            MenuItem menuItem = new MenuItem(name, price, description, category, isNew);
+            menu.addItem(menuItem);
+
+            //______________________________________________________display menu
+            menu.display();
+
+            System.out.println("Add a new menu item? (y/n)");//________prompt for adding a menu item
+            addItem = input.nextLine();
+        }
+
 
     }
 
