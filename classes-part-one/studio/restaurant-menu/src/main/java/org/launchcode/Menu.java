@@ -32,6 +32,13 @@ public class Menu {
         items.add(item);
     }
 
+
+    public void displayMenu(){
+        //code here
+        //get a loop going through the different menu items, sort each into different categories for display. Then loop through each category and print the menuItem
+        //remove: maybe have an id key that gets set when it's looping through different menu items? or just have the person type out its name and search for that...
+    }
+
 }
 
 //Menu handles: constructing/compiling menuItems into different hashmaps (by category), date when last updated

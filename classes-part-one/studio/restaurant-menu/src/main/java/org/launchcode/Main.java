@@ -7,17 +7,17 @@ import java.util.Scanner;
 import static java.time.LocalDate.now;
 
 public class Main {
+    LocalDate lastUpdated = LocalDate.now(); //_______make menu parts and new menu
+    ArrayList<MenuItem> items = new ArrayList<>();
+    Menu menu = new Menu(lastUpdated, items);
 
-    public void main(String[] args) {
-	// write your code here
-//        MenuItem spaghettli = new MenuItem();
-//        MenuItem.newItem();
+    public static void main(String[] args) {
+	    // write your code here
+        //prompt for adding a menu item
 
-        LocalDate lastUpdated = LocalDate.now(); //_______make menu parts and new menu
-        ArrayList<MenuItem> items = new ArrayList<>();
-        Menu menu = new Menu(lastUpdated, items);
-        //_____________________________________________make menuItem??????
-        newItem();
+        //_____________________________________________make menuItem
+        Main item = new Main();
+        item.newItem();
 
 
     }
@@ -75,7 +75,7 @@ public class Main {
         // get info you need
         //make new MenuItem? (MenuItem(things you need)     MenuItem name = new MenuItem(params)
         //add new MenuItem to Menu (Menu.addItem())
-    }
+
 
 
 }
